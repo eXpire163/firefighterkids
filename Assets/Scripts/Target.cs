@@ -89,6 +89,7 @@ public class Target : MonoBehaviour {
 	void updateUI(){
 
 		fireImage.fillAmount = Mathf.InverseLerp (0, fireStartPower, firePower);
+		healthImage.fillAmount = Mathf.InverseLerp (0, maxHealth, health);
 			
 	}
 
