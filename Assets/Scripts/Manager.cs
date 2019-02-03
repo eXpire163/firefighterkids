@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour {
 
-	public enum GameDifficulty{Easy = 0, Medium = 1, Hard = 2};
 
-	public static GameDifficulty Difficulty = GameDifficulty.Easy;
 
 	List<Target> fire;
 	GameObject[] targets;

@@ -102,7 +102,7 @@ public class Target : MonoBehaviour {
 	
 		canvas.enabled = true;
 
-		if (Manager.Difficulty >= Manager.GameDifficulty.Medium) {
+		if (GameSettings.Difficulty >= GameSettings.GameDifficulty.Medium) {
 			InvokeRepeating ("AddFireNearby", fireHopTime, fireHopTime);
 		}
 

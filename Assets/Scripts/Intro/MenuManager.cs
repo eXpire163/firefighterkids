@@ -17,18 +17,20 @@ public class MenuManager : MonoBehaviour {
 
 	public void loadEinfach(){
 
+		GameSettings.Difficulty = GameSettings.GameDifficulty.Easy;
+
 		SceneManager.LoadScene("Level/base", LoadSceneMode.Single);
 
 	}
 
 	public void loadMittel(){
-
+		GameSettings.Difficulty = GameSettings.GameDifficulty.Medium;
 		SceneManager.LoadScene("Level/base", LoadSceneMode.Single);
 
 	}
 
 	public void loadSchwer(){
-
+		GameSettings.Difficulty = GameSettings.GameDifficulty.Hard;
 		SceneManager.LoadScene("Level/base", LoadSceneMode.Single);
 
 	}

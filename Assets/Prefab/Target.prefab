@@ -5153,6 +5153,7 @@ MonoBehaviour:
   - {fileID: 1000010315956650, guid: 1560075f917727c46a8546367a2f3132, type: 3}
   - {fileID: 1000013289884710, guid: f0cf8146888c5ba4ebd406d6a76baeb7, type: 3}
   - {fileID: 1000013289884710, guid: 836502b01da356747b5d7666e52f9c93, type: 3}
+  - {fileID: 1000013289884710, guid: a68430c1635a17e45bb8c7c80ea0d990, type: 3}
   healthImage: {fileID: 1549411268}
   fireImage: {fileID: 1569590711}
   canvas: {fileID: 483849857}
