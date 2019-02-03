@@ -20,8 +20,14 @@ public class CameraManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
+
 		
 		StartCoroutine (Step1() );
+
+		Target target = GameObject.Find ("IntroTarget").GetComponent<Target> ();
+		target.startFire (200);
 
 	}
 
@@ -38,7 +44,7 @@ public class CameraManager : MonoBehaviour {
 
 		yield return StartCoroutine (MoveOverSeconds (camera3, end3.position, 5f));
 
-		SceneManager.LoadScene("Level/menu", LoadSceneMode.Single);
+		SceneManager.LoadScene("Level/nonPlay/menu", LoadSceneMode.Single);
 	}
 	
 
