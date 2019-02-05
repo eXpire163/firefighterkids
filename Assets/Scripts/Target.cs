@@ -77,11 +77,16 @@ public class Target : MonoBehaviour {
 
 		updateUI ();
 		if (firePower <= 0) {
+
+			if (canvas.enabled) // only on the first after fire got below 0
+				ScoreSystem.firesKilled++;
+
 			partialSystem.Stop ();
 			ParticleSystem.EmissionModule em=  partialSystem.emission;
 			em.enabled = false;
 			canvas.enabled = false;
 			CancelInvoke ();
+
 		}
 	}
 
