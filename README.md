@@ -18,4 +18,13 @@ What it's NOT
 - showing real brands
 
 
+## Get Started
+
+First clone the repo and open it in Unity
+
+Open the asset Intro in Level/nonPlay/ and hit PLAY
+
+If you want to start changing the actual game - open the asset Level/[any map] and get started coding / changing / modding / fixing
+
+
 
