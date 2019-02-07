@@ -42,7 +42,7 @@ public class CameraManager : MonoBehaviour {
 
 		truck.transform.position = truckpos.position;
 
-		yield return StartCoroutine (MoveOverSeconds (camera3, end3.position, 5f));
+		yield return StartCoroutine (MoveOverSeconds (camera3, end3.position, 5f, false));
 
 		SceneManager.LoadScene("Level/nonPlay/menu", LoadSceneMode.Single);
 	}
@@ -60,7 +60,7 @@ public class CameraManager : MonoBehaviour {
 		}
 		objectToMove.GetComponent<Camera> ().enabled = false;
 	}
-	private IEnumerator MoveOverSeconds (GameObject objectToMove, Vector3 end, float seconds)
+	private IEnumerator MoveOverSeconds (GameObject objectToMove, Vector3 end, float seconds, bool disableCamera = true)
 	{
 
 		objectToMove.GetComponent<Camera> ().enabled = true;
@@ -74,7 +74,8 @@ public class CameraManager : MonoBehaviour {
 		}
 		objectToMove.transform.position = end;
 
-		objectToMove.GetComponent<Camera> ().enabled = false;
+        if(disableCamera)
+		    objectToMove.GetComponent<Camera> ().enabled = false;
 	}
 
 
