@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+<<<<<<< HEAD
 	public enum Maps{ expire, town, cs }
 
 	// Use this for initialization
@@ -16,22 +17,38 @@ public class MenuManager : MonoBehaviour {
 	void Update () {
 		
 	}
+=======
+    [SerializeField]
+    private SceneLoader sceneLoader;
+>>>>>>> e38d2e7943fb1fb98c39ab18c5db4fdba01dd379
 
 	public void loadEinfach(){
 
 		GameSettings.Difficulty = GameSettings.GameDifficulty.Easy;
+<<<<<<< HEAD
 
+=======
+        sceneLoader.LoadLevel("Level/country side");
+>>>>>>> e38d2e7943fb1fb98c39ab18c5db4fdba01dd379
 
 	}
 
 	public void loadMittel(){
 		GameSettings.Difficulty = GameSettings.GameDifficulty.Medium;
+<<<<<<< HEAD
 
+=======
+        sceneLoader.LoadLevel("Level/town");
+>>>>>>> e38d2e7943fb1fb98c39ab18c5db4fdba01dd379
 
 	}
 
 	public void loadSchwer(){
 		GameSettings.Difficulty = GameSettings.GameDifficulty.Hard;
+<<<<<<< HEAD
+=======
+        sceneLoader.LoadLevel("Level/town");
+>>>>>>> e38d2e7943fb1fb98c39ab18c5db4fdba01dd379
 
 	}
 

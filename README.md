@@ -2,6 +2,7 @@
 
 This is a smale game that targets litte kids how like the current firefighter moves and already have all the toys you can imagine ;)
 
+Download from https://expire163.itch.io/super-fire-fighters
 
 ## Goal
 
