@@ -7,13 +7,18 @@ public class Target : MonoBehaviour {
 
 	//TODO: add water/wettness to prevent from beeing light up again from nighboar
 
-	public int health = 100;
+	public float health = 100;
 	public int maxHealth = 100;
 	public int firePower = 300;
 	public int fireStartPower = 300;
 
+	public float waterPower = 0;
+	public int maxWaterPower = 50;
+
 	public float fireHopTime = 45f;
 	public float fireHopDistance = 20f;
+
+	public float dryFactor = 0.2f;
 
 	public bool isBurning{
 		get {return firePower > 0; }
@@ -32,6 +37,7 @@ public class Target : MonoBehaviour {
 	[Header("Unity Stuff")]
 	public Image healthImage;
 	public Image fireImage;
+	public Image waterImage;
 	public Canvas canvas;
 
 	ParticleSystem.EmissionModule em;
@@ -63,28 +69,42 @@ public class Target : MonoBehaviour {
 			startFire (fireStartPower);
 		}
 
+		updateUI ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//todo on medium or hard remove health
+
+		if (waterPower > 0) {
+			waterPower -= Time.deltaTime * dryFactor;
+
+		}
+
+		updateUI ();
+
 	}
 
 
-	public void addWater(){
+	public void addWater(int waterHitPower = 1){
 		
-		firePower--;
+		firePower-=waterHitPower;
+
 
 		updateUI ();
+
 		if (firePower <= 0) {
 
-			if (canvas.enabled) // only on the first after fire got below 0
+			waterPower += waterHitPower;
+
+
+			if (partialSystem.isEmitting) // only on the first after fire got below 0
 				ScoreSystem.firesKilled++;
 
 			partialSystem.Stop ();
 			ParticleSystem.EmissionModule em=  partialSystem.emission;
 			em.enabled = false;
-			canvas.enabled = false;
 			CancelInvoke ();
 
 		}
@@ -95,21 +115,36 @@ public class Target : MonoBehaviour {
 
 		fireImage.fillAmount = Mathf.InverseLerp (0, fireStartPower, firePower);
 		healthImage.fillAmount = Mathf.InverseLerp (0, maxHealth, health);
+		waterImage.fillAmount = Mathf.InverseLerp (0, maxWaterPower, waterPower);
+
+
+
+		if (firePower <= 0 && waterPower <=0) {
+			canvas.enabled = false;
+		}
+
 			
 	}
 
 	public void startFire(int power=50){
   	
-		firePower = power;
-		fireStartPower = power;
+		if (waterPower > 0) {
+			waterPower -= 15;
+					
+		} else {
+			waterPower = 0;
+			firePower = power;
+			fireStartPower = power;
 
-		em.enabled = true;
-		partialSystem.Play ();
+			em.enabled = true;
+			partialSystem.Play ();
 	
-		canvas.enabled = true;
+			canvas.enabled = true;
 
-		if (GameSettings.Difficulty >= GameSettings.GameDifficulty.Medium) {
-			InvokeRepeating ("AddFireNearby", fireHopTime, fireHopTime);
+			if (GameSettings.Difficulty >= GameSettings.GameDifficulty.Medium) {
+				InvokeRepeating ("AddFireNearby", fireHopTime, fireHopTime);
+			}
+
 		}
 
 
