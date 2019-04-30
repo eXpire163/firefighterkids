@@ -31,6 +31,15 @@ public class CameraManager : MonoBehaviour {
 
 	}
 
+	void Update(){
+	
+		if (Input.GetKey (KeyCode.Escape)) {
+			
+			SceneManager.LoadScene("Level/nonPlay/menu", LoadSceneMode.Single);
+		}
+	
+	}
+
 	private IEnumerator Step1(){
 		
 	
