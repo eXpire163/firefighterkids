@@ -14,6 +14,9 @@ public class MenuManager : MonoBehaviour {
     private SceneLoader sceneLoader;
 
 
+
+
+
 	public void loadEinfach(){
 
 		GameSettings.Difficulty = GameSettings.GameDifficulty.Easy;
