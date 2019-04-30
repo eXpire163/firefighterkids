@@ -55,6 +55,12 @@ public class SceneLoader : MonoBehaviour
             
         }
 
+		if (Input.GetKey (KeyCode.Escape)) {
+		
+			LoadLevel ("Level/nonPlay/menu");
+		
+		}
+
     }
 
 
